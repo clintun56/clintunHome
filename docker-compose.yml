@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+volumes:
+  postgres-data:
+
+# สร้างและเริ่ม containers
+# docker-compose up -d
+
+# # ดูสถานะ containers ที่กำลังทำงาน
+# docker ps
+
+# # ดู logs
+# docker-compose logs
+
+# # หยุดการทำงาน containers
+# docker-compose down
+
+# # รีสตาร์ท containers
+# docker-compose restart
+
+# # หยุด containers
+# docker-compose stop
+
+# # เริ่ม containers
+# docker-compose start
