@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Project with Google Authentication
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -6,19 +8,28 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env` file in the root directory with the following variables:
+
+```env
+DATABASE_URL="postgresql://myuser:mypassword@localhost:5432/mydb"
+GOOGLE_CLIENT_ID=your_client_id
+GOOGLE_CLIENT_SECRET=your_client_secret
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+```
+
+## Features
+
+- Google Authentication
+- PostgreSQL Database
+- Responsive Design
+- Dark Mode Support
 
 ## Learn More
 
