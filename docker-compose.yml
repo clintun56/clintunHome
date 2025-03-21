@@ -42,3 +42,7 @@ volumes:
 
 # # เริ่ม containers
 # docker-compose start
+
+
+# อัพ
+# git push -u origin main

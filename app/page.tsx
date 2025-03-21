@@ -1,117 +1,107 @@
-import AuthSection from './components/AuthSection';
-import Image from "next/image";
+import AuthButton from './components/AuthButton';
+import { BiAperture } from "react-icons/bi";
+import { 
+  FaDocker, 
+  FaGithub, 
+  FaPhp, 
+  FaCode,
+  FaLinkedin,
+  FaNode, 
+  FaDatabase,
+  FaLayerGroup 
+} from 'react-icons/fa';
+import { 
+  SiPrisma, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiJavascript, 
+  SiMysql, 
+  SiPostgresql 
+} from 'react-icons/si';
 import './animations.css';
 
 export default function Home() {
+  const technologies = [
+   
+    { icon: <SiNextdotjs className="text-4xl text-black" />, name: "Next.js", description: "React Framework" },
+    { icon: <FaNode className="text-4xl text-blue-400" />, name: "Node.js", description: "Node.js lets developers use JavaScript" },
+    { icon: <FaPhp className="text-4xl text-purple-600" />, name: "PHP", description: "Backend Development" },
+    { icon: <SiJavascript className="text-4xl text-yellow-400" />, name: "JavaScript", description: "Web Development" },
+    { icon: <SiTypescript className="text-4xl text-blue-600" />, name: "TypeScript", description: "Type-safe JavaScript" },
+    { icon: <FaDocker className="text-4xl text-blue-500" />, name: "Docker", description: "Containerization & Deployment" },
+    { icon: <SiPrisma className="text-4xl text-slate-800" />, name: "Prisma", description: "Next-gen ORM for Node.js" },
+    { icon: <FaGithub className="text-4xl text-gray-800" />, name: "GitHub", description: "Version Control & CI/CD" },
+    { 
+      icon: <FaLayerGroup className="text-4xl text-green-600" />, 
+      name: "MVC Architecture", 
+      description: "Model-View-Controller Pattern" 
+    },
+    { icon: <SiMysql className="text-4xl text-blue-700" />, name: "MySQL", description: "Relational Database" },
+    { icon: <SiPostgresql className="text-4xl text-blue-400" />, name: "PostgreSQL", description: "Advanced SQL Database" },
+
+
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
         <header className="w-full">
           <nav className="container mx-auto flex justify-between items-center">
-            <Image
-              className="dark:invert animate-fadeIn"
-              src="/next.svg"
-              alt="Next.js logo"
-              width={100}
-              height={20}
-              priority
-            />
-            <AuthSection />
+            <div className="flex items-center gap-4">
+              <BiAperture className="text-3xl text-blue-600" />
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Clin Tun</h1>
+            </div>
+            <AuthButton/>
           </nav>
         </header>
 
-        <main className="container mx-auto flex flex-col gap-[32px] items-center">
-          <div className="glass-effect rounded-2xl p-8 max-w-2xl w-full animate-fadeIn">
-            <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Welcome to Next.js
-            </h1>
-            
-            <ol className="list-inside list-decimal space-y-4 text-gray-700 dark:text-gray-300">
-              <li className="animate-fadeIn" style={{ animationDelay: '0.2s' }}>
-                Get started by editing{" "}
-                <code className="bg-black/[.05] dark:bg-white/[.06] px-2 py-1 rounded-md font-mono">
-                  app/page.tsx
-                </code>
-              </li>
-              <li className="animate-fadeIn" style={{ animationDelay: '0.4s' }}>
-                Save and see your changes instantly.
-              </li>
-            </ol>
+        <main className="container mx-auto text-center">
+          <h1 className="text-5xl font-bold mb-6 text-gray-800 dark:text-white">
+            Full Stack Development Solutions
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
+            Specializing in Modern Web Technologies & Cloud Infrastructure
+          </p>
 
-            <div className="flex gap-4 items-center justify-center mt-8 flex-wrap">
-              <a
-                className="transform hover:scale-105 transition-all duration-200 rounded-full px-6 py-3 bg-blue-600 text-white flex items-center gap-2 hover:bg-blue-700"
-                href="https://vercel.com/new"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/vercel.svg"
-                  alt="Vercel"
-                  width={20}
-                  height={20}
-                  className="dark:invert"
-                />
-                Deploy Now
-              </a>
-              <a
-                className="transform hover:scale-105 transition-all duration-200 rounded-full px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 flex items-center gap-2"
-                href="https://nextjs.org/docs"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Documentation
-              </a>
+          {/* Tech Stack Section */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
+            {technologies.map((tech, index) => (
+              <div key={index} className="flex flex-col items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="mb-4">{tech.icon}</div>
+                <h3 className="font-semibold text-gray-800 dark:text-white">{tech.name}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{tech.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Projects Section */}
+          <h2 className="text-3xl font-bold mb-8 text-gray-800 dark:text-white">Featured Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform">
+              <h3 className="text-xl font-semibold mb-4">Docker Microservices</h3>
+              <p className="text-gray-600 dark:text-gray-300">Containerized application architecture with Docker and Kubernetes</p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform">
+              <h3 className="text-xl font-semibold mb-4">Next.js + Prisma App</h3>
+              <p className="text-gray-600 dark:text-gray-300">Full-stack TypeScript application with Prisma ORM</p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform">
+              <h3 className="text-xl font-semibold mb-4">PHP API Gateway</h3>
+              <p className="text-gray-600 dark:text-gray-300">Modern PHP microservices with Laravel</p>
             </div>
           </div>
         </main>
 
-        <footer className="container mx-auto flex gap-6 flex-wrap items-center justify-center">
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/file.svg"
-              alt="File icon"
-              width={16}
-              height={16}
-            />
-            Learn
-          </a>
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/window.svg"
-              alt="Window icon"
-              width={16}
-              height={16}
-            />
-            Examples
-          </a>
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/globe.svg"
-              alt="Globe icon"
-              width={16}
-              height={16}
-            />
-            Go to nextjs.org →
-          </a>
+        <footer className="w-full text-center">
+          <div className="flex justify-center gap-6 mb-4">
+            <a href="#" className="text-3xl text-gray-600 hover:text-blue-600 transition-colors">
+              <FaGithub />
+            </a>
+            <a href="#" className="text-3xl text-gray-600 hover:text-blue-600 transition-colors">
+              <FaLinkedin />
+            </a>
+          </div>
+          <p className="text-gray-600 dark:text-gray-300">© 2024 Full Stack Developer. All rights reserved.</p>
         </footer>
       </div>
     </div>
