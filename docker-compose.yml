@@ -1,26 +1,43 @@
 version: '3.8'
 services:
-  postgres:
-    image: postgres:latest
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydb
+      MYSQL_ROOT_PASSWORD: 0894226808zZ
+      MYSQL_DATABASE: clintun_nx
+      MYSQL_USER: clintun_nx
+      MYSQL_PASSWORD: mypassword
     ports:
-      - "5432:5432"
+      - "3306:3306"
     volumes:
-      - postgres-data:/var/lib/postgresql/data
-  pgadmin:
-    image: dpage/pgadmin4
+      - mysql-data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
+      PMA_HOST: mysql
+      PMA_USER: clintun_nx
+      PMA_PASSWORD: 0894226808zZ
+      UPLOAD_LIMIT: 300M
     ports:
-      - "5050:80"
+      - "8080:80"
     depends_on:
-      - postgres
+      - mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
 volumes:
-  postgres-data:
+  mysql-data:
 
 # สร้างและเริ่ม containers
 # docker-compose up -d

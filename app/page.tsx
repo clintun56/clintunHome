@@ -16,7 +16,9 @@ import {
   SiTypescript, 
   SiJavascript, 
   SiMysql, 
-  SiPostgresql 
+  SiPostgresql,
+  SiDart,
+  SiFlutter 
 } from 'react-icons/si';
 import './animations.css';
 
@@ -38,6 +40,16 @@ export default function Home() {
     },
     { icon: <SiMysql className="text-4xl text-blue-700" />, name: "MySQL", description: "Relational Database" },
     { icon: <SiPostgresql className="text-4xl text-blue-400" />, name: "PostgreSQL", description: "Advanced SQL Database" },
+    { 
+      icon: <SiDart className="text-4xl text-blue-500" />, 
+      name: "Dart", 
+      description: "Modern Programming Language" 
+    },
+    { 
+      icon: <SiFlutter className="text-4xl text-cyan-400" />, 
+      name: "Flutter", 
+      description: "Cross-Platform Development" 
+    },
 
 
   ];
