@@ -69,7 +69,7 @@ export default function Home() {
 
         <main className="container mx-auto text-center">
           <h1 className="text-5xl font-bold mb-6 text-gray-800 dark:text-white">
-            Fu ตั้นหล่อ Development Solutions
+            Fu ตั้นหล่ออัพเดด Development Solutions
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
             Specializing in Modern Web Technologies & Cloud Infrastructure
